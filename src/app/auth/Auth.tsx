@@ -1,5 +1,7 @@
 "use client"
 
+import { Button } from "@/components/ui/buttons/Button"
+import { Field } from "@/components/ui/fields/Field"
 import { Heading } from "@/components/ui/Heading"
 import { DASHBOARD_PAGES } from "@/config/pages-url.config"
 import { authService } from "@/services/auth.service"
@@ -24,6 +26,7 @@ export function Auth() {
     mutationFn: (data: IAuthForm) =>
       authService.main(isLoginForm ? "login" : "register", data),
     onSuccess() {
+      console.log("first")
       toast.success("Successfully login!")
       reset()
       push(DASHBOARD_PAGES.HOME)
@@ -41,9 +44,25 @@ export function Auth() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Heading title="Auth" />
-        {/*Fields*/}
+        <Field
+          id="email"
+          label="Email:"
+          placeholder="Enter email"
+          type="email"
+          extra="mb-4"
+          {...register("email", { required: "Email is required!" })}
+        />
+        <Field
+          id="password"
+          label="Password:"
+          placeholder="Enter password"
+          type="password"
+          extra="mb-6"
+          {...register("password", { required: "Password is required!" })}
+        />
         <div className="flex items-center gap-5 justify-center">
-          {/*Buttons*/}
+          <Button onClick={() => setIsLoginform(true)}>Login</Button>
+          <Button onClick={() => setIsLoginform(false)}>Register</Button>
         </div>
       </form>
     </div>
