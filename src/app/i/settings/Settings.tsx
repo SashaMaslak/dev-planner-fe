@@ -41,7 +41,6 @@ export function Settings() {
               id="name"
               label="Name"
               placeholder="Enter name: "
-              type="email"
               {...register("name")}
               extra="mb-4"
             />

@@ -1,9 +1,9 @@
-import { IBase } from "./root.types"
+import type { IBase } from "./root.types"
 
 export enum EnumTaskPriority {
-  low = 'low',
+  low = "low",
   medium = "medium",
-  high = 'high'
+  high = "high",
 }
 
 export interface ITaskResponse extends IBase {
@@ -12,4 +12,4 @@ export interface ITaskResponse extends IBase {
   isCompleted: boolean
 }
 
-export type TypeTaskFormState = Partial<Omit<ITaskResponse, 'id' | 'updatedAt'>>
+export type TypeTaskFormState = Partial<Omit<ITaskResponse, "id" | "updatedAt">>

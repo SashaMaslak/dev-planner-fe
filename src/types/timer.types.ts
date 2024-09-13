@@ -1,4 +1,4 @@
-import { IBase } from "./root.types"
+import type { IBase } from "./root.types"
 
 export interface ITimerRoundResponse extends IBase {
   isCompleted?: boolean
@@ -10,6 +10,10 @@ export interface ITimerSessionResponse extends IBase {
   rounds?: ITimerRoundResponse[]
 }
 
-export type TypeTimerSessionState = Partial<Omit<ITimerSessionResponse, 'id' | 'createdAt' | 'updatedAt'>>
+export type TypeTimerSessionState = Partial<
+  Omit<ITimerSessionResponse, "id" | "createdAt" | "updatedAt">
+>
 
-export type TypeTimerRoundState = Partial<Omit<ITimerRoundResponse, 'id' | 'createdAt' | 'updatedAt'>>
+export type TypeTimerRoundState = Partial<
+  Omit<ITimerRoundResponse, "id" | "createdAt" | "updatedAt">
+>
